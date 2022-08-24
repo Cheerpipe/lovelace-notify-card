@@ -50,6 +50,7 @@ class NotifyCard extends HTMLElement {
 
   send(){
     let msg = this.content.querySelector("#notification_text").value;
+    let entity_id = this.config.entity_id
     let title = this.content.querySelector("#notification_title")?.value ?? this.config.notification_title;
     for (let t of this.targets) {
       let [domain, target = null] = t.split(".");
@@ -57,7 +58,7 @@ class NotifyCard extends HTMLElement {
         target = domain;
         domain = "notify";
       }
-      this.hass.callService(domain, target, this.config.data);
+      this.hass.callService(domain, target, }{);
     }
     this.content.querySelectorAll("paper-input").forEach(e => e.value = "");
   }
