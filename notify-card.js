@@ -58,7 +58,7 @@ class NotifyCard extends HTMLElement {
         target = domain;
         domain = "notify";
       }
-      this.hass.callService(domain, target, }{);
+      this.hass.callService(domain, target, {data.message: msg, entity_id: this.config.entity_id});
     }
     this.content.querySelectorAll("paper-input").forEach(e => e.value = "");
   }
