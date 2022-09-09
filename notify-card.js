@@ -12,7 +12,7 @@ class NotifyCard extends HTMLElement {
       throw new Error('Target needs to be a list or single target');
     }
     this.render();
-  }
+  } 
 
   render() {
     if (!this.content) {
@@ -22,19 +22,19 @@ class NotifyCard extends HTMLElement {
       this.card.appendChild(this.content);
       this.appendChild(this.card);
     }
-    this.card.header = this.config.card_title ?? "Send Notification";
+    this.card.header = this.config.card_title;
     this.content.innerHTML = "";
 
     if(this.config.notification_title instanceof Object){
-      let title_label = this.config.notification_title.input ?? "Notification Title"
+      let title_label = this.config.notification_title.input
       this.content.innerHTML += `
       <div style="display: flex">
         <paper-input id="notification_title" style="flex-grow: 1" label="${title_label}"/>
-      </div>
-      `
+      </div> 
+      ` 
     }
     
-    let label = this.config.label ?? "Notification Text";
+    let label = this.config.label;
     this.content.innerHTML += `
     <div style="display: flex">   
       <paper-input id="notification_text" style="flex-grow: 1" label="${label}">
